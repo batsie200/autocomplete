@@ -40,24 +40,22 @@ public class AjaxController {
 	}
  
 	@RequestMapping(value = "/getEmployees", method = RequestMethod.POST, produces = "application/json")
-	public  @ResponseBody List<Employee> getTags(@RequestParam String term, HttpServletResponse response) {
+	public  @ResponseBody List<Employee> getEmployees(@RequestParam String term, HttpServletResponse response) {
 		return simulateSearchResult(term);
  
 	}
  /**
   * 	@RequestMapping(value = "/getEmployees", method = RequestMethod.POST)
-	public void getTags(@RequestParam String term, HttpServletResponse response) {
+	public void getEmployees(@RequestParam String term, HttpServletResponse response) {
 		System.out.println("Term entered is");
 		try {
 			response.setContentType("application/json");
 			List al = new ArrayList();
-			al.add("Navnit");
-			al.add("Navnit1");
-			al.add("Navnit12");
+			al.add("John D");
+			al.add("Johnny");
+			al.add("John");
 			String g = new Gson().toJson(simulateSearchResult(term));
 //			String g = new Gson().toJson(al);
-			System.out.println("Response being sent is ");
-			System.out.println(g);
 			response.getWriter().write(g);
 		} catch (IOException e) {
 			e.printStackTrace();
