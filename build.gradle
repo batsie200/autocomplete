@@ -1,0 +1,29 @@
+apply plugin: 'java'
+apply plugin: 'maven'
+apply plugin: 'war'
+
+group = 'autocomplete'
+version = '0.0.1-SNAPSHOT'
+
+description = """"""
+
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
+
+
+repositories {
+	// First check local cache before accessing central repository
+    mavenRepo name:'Local', urls: "file://" + System.properties['user.home'] + "/.m2/repository"
+    mavenCentral()        
+     
+}
+
+dependencies {
+    compile group: 'org.springframework', name: 'spring-context', version:'3.2.2.RELEASE'
+    compile group: 'org.springframework', name: 'spring-webmvc', version:'3.2.2.RELEASE'
+    compile group: 'org.apache.tomcat', name: 'servlet-api', version:'6.0.39'
+    compile group: 'javax.servlet', name: 'jstl', version:'1.2'
+    compile group: 'org.codehaus.jackson', name: 'jackson-mapper-asl', version:'1.9.13'
+    compile group: 'org.codehaus.jackson', name: 'jackson-core-asl', version:'1.9.13'
+    compile group: 'com.google.code.gson', name: 'gson', version:'2.2.4'
+}
